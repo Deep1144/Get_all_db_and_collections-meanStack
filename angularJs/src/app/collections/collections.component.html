@@ -1,0 +1,33 @@
+<mat-card>
+  <mat-list >
+    <!-- <mat-list-item role="listitem">{{ dbName.name }}</mat-list-item> -->
+    <mat-list-item *ngFor="let dbName of collectionService.dataBaseNames">
+      <button mat-icon-button (click)="getCollection(dbName)"> <mat-icon mat-list-icon>folder</mat-icon></button>
+      <h4 mat-line>{{dbName.name}}</h4>
+    </mat-list-item>
+  </mat-list>
+</mat-card>
+
+
+
+<mat-card *ngIf="collectionService.collectionFlag === 1" class="my-5">
+  <h1>List of Collections</h1>
+  <mat-list >
+    <mat-list-item *ngFor="let CollectionName of collectionService.collectionNames">
+      <button mat-icon-button (click)="getData(CollectionName)"> <mat-icon mat-list-icon>folder</mat-icon></button>
+      <h4 mat-line>{{CollectionName.name}}</h4>
+    </mat-list-item>
+  </mat-list>
+</mat-card>
+
+
+
+<mat-card *ngIf="collectionService.dataListFlag === 1" class="my-5">
+  <h1>List of Collections</h1>
+  <mat-list >
+    <mat-list-item *ngFor="let dataName of collectionService.dataList">
+      <button mat-icon-button (click)="getData(CollectionName)"> <mat-icon mat-list-icon>folder</mat-icon></button>
+      <h4 mat-line>{{dataName._id}}</h4>
+    </mat-list-item>
+  </mat-list>
+</mat-card>
