@@ -12,8 +12,8 @@ cd angularJs <br>
 ng serve -o <br>
 started at :http://localhost:4200/
 
-<br>
-Port of mongoDb is :<a>mongodb://localhost:27017/test</a>
+<br><br>
+<h3>Port of mongoDb is :mongodb://localhost:27017/test</h3>
 
 
 <h2>The Result Will look something like this</h2>
