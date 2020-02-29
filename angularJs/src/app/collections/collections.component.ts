@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { CollectionservicesService } from '../shared/collectionservices.service';
+import { Key } from 'protractor';
+import { map } from 'rxjs/operators';
+
 
 @Component({
   selector: 'app-collections',
@@ -35,9 +38,12 @@ export class CollectionsComponent implements OnInit {
 
   getData(collectionName){
     this.collectionService.getData(collectionName).subscribe(res =>{
-      console.log("res is here "+res);
+      console.log("res is here "+JSON.stringify(res));
+      // console.log("Key : "+ JSON.stringify(res[Key[0]]));
       this.collectionService.dataListFlag=1;
       this.collectionService.dataList = res;
+
+
     });
     // console.log("here.............")
   }

@@ -13,6 +13,8 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatExpansionModule} from '@angular/material/expansion';
 import { CollectionsComponent } from './collections/collections.component';
 import {MatIconModule} from '@angular/material/icon';
+import {MatChipsModule} from '@angular/material/chips';
+import {MatStepperModule} from '@angular/material/stepper';
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,7 +32,9 @@ import {MatIconModule} from '@angular/material/icon';
     HttpClientModule,
     MatExpansionModule,
     MatListModule,
-    MatIconModule
+    MatIconModule,
+    MatChipsModule,
+    MatStepperModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,6 +1,5 @@
-<mat-card>
-  <mat-list >
-    <!-- <mat-list-item role="listitem">{{ dbName.name }}</mat-list-item> -->
+<!-- <mat-card  class="w-75 m-auto">
+  <mat-list  >
     <mat-list-item *ngFor="let dbName of collectionService.dataBaseNames">
       <button mat-icon-button (click)="getCollection(dbName)"> <mat-icon mat-list-icon>folder</mat-icon></button>
       <h4 mat-line>{{dbName.name}}</h4>
@@ -10,8 +9,8 @@
 
 
 
-<mat-card *ngIf="collectionService.collectionFlag === 1" class="my-5">
-  <h1>List of Collections</h1>
+<mat-card  align="center" *ngIf="collectionService.collectionFlag === 1" class="my-5 w-75 mx-auto">
+  <h1 align="center">List of Collections</h1>
   <mat-list >
     <mat-list-item *ngFor="let CollectionName of collectionService.collectionNames">
       <button mat-icon-button (click)="getData(CollectionName)"> <mat-icon mat-list-icon>folder</mat-icon></button>
@@ -22,12 +21,64 @@
 
 
 
-<mat-card *ngIf="collectionService.dataListFlag === 1" class="my-5">
-  <h1>List of Collections</h1>
+<mat-card align="center" *ngIf="collectionService.dataListFlag === 1" class="my-5 w-75 mx-auto">
+  <h1 align="center">List of Data</h1>
   <mat-list >
-    <mat-list-item *ngFor="let dataName of collectionService.dataList">
-      <button mat-icon-button (click)="getData(CollectionName)"> <mat-icon mat-list-icon>folder</mat-icon></button>
-      <h4 mat-line>{{dataName._id}}</h4>
+    <mat-list-item *ngFor="let collectionName of collectionService.dataList">
+      <button mat-icon-button [disabled]="true"> <mat-icon mat-list-icon>folder</mat-icon></button>
+      <h4 mat-line>{{collectionName._id}}</h4>
     </mat-list-item>
   </mat-list>
 </mat-card>
+-->
+
+
+
+
+<mat-horizontal-stepper [linear]="true" class="w-75 mx-auto">
+  <mat-step>
+    <ng-template matStepLabel>Select Database</ng-template>
+    <mat-card  class="w-75 m-auto">
+      <mat-list  >
+        <!-- <mat-list-item role="listitem">{{ dbName.name }}</mat-list-item> -->
+        <mat-list-item *ngFor="let dbName of collectionService.dataBaseNames">
+          <button mat-icon-button (click)="getCollection(dbName)" matStepperNext> <mat-icon color="primary" mat-list-icon>folder</mat-icon></button>
+          <h4 mat-line>{{dbName.name}}</h4>
+        </mat-list-item>
+      </mat-list>
+    </mat-card>
+    <!-- <div>
+      <button mat-button matStepperNext>Next</button>
+    </div> -->
+  </mat-step>
+
+
+
+  <mat-step>
+    <ng-template matStepLabel>Select Collection</ng-template>
+    <mat-card  align="center" *ngIf="collectionService.collectionFlag === 1" class="my-5 w-75 mx-auto">
+      <h1 align="center">List of Collections</h1>
+      <mat-list >
+        <mat-list-item *ngFor="let CollectionName of collectionService.collectionNames">
+          <button mat-icon-button (click)="getData(CollectionName)" matStepperNext> <mat-icon mat-list-icon color="primary">folder</mat-icon></button>
+          <h4 mat-line>{{CollectionName.name}}</h4>
+        </mat-list-item>
+      </mat-list>
+    </mat-card>
+
+  </mat-step>
+
+<mat-step>
+  <ng-template matStepLabel>Data</ng-template>
+  <mat-card align="center" *ngIf="collectionService.dataListFlag === 1" class="my-5 w-75 mx-auto">
+    <h1 align="center">List of Data</h1>
+    <mat-list >
+      <mat-list-item *ngFor="let collectionName of collectionService.dataList">
+        <button mat-icon-button [disabled]="true"> <mat-icon mat-list-icon >folder</mat-icon></button>
+        <h4 mat-line>{{collectionName._id}}</h4>
+      </mat-list-item>
+    </mat-list>
+  </mat-card>
+  </mat-step>
+</mat-horizontal-stepper>
+
