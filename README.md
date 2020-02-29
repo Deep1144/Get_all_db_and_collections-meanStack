@@ -1,3 +1,3 @@
 # Get_all_db_and_collections-meanStack
 
-![]('imagesReadMe/page1.png')
+![](imagesReadMe/page1.png)
